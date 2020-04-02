@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './style.css';
 import Reward from './Reward.js';
 
-function Score() {
-  return (
-    <div>
-      <h3>World!</h3>
-      <Reward />
-    </div>
-  );
+class Score extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      computerScore: 0,
+      playerScore: 0
+    };
+  }
+  
+  render() {
+    return (
+      <div>
+        <h3>Player: {this.state.playerScore} - Computer: {this.state.computerScore}</h3>
+        <Reward />
+      </div>
+    );
+  }
 }
 
 export default Score;

@@ -4,30 +4,20 @@ const fetch = require('node-fetch')
 
 /* GET random joke. */
 router.get('/', async function(req, res, next) {
-  req.headers['accept'] = 'text/plain'
-  const unparsedJoke = await fetch( 'https://icanhazdadjoke.com/', { 
-    method: 'GET', 
-    headers: {
-    'Accept': 'text/plain',
-    }
-  })
-  const joke = await unparsedJoke.text()
-  res.send(joke)
+  try {
+    req.headers['accept'] = 'text/plain'
+    const unparsedJoke = await fetch( 'https://icanhazdadjoke.com/', { 
+      method: 'GET', 
+      headers: {
+      'Accept': 'text/plain',
+      'User-Agent': 'My Libray (https://github.com/MortenEmde/hackday)'
+      }
+    })
+    const joke = await unparsedJoke.text();
+    res.send(joke);
+  } catch (err) {
+    res.sendStatus(400)
+  }
 });
 
 module.exports = router;
-
-// fetch('https://icanhazdadjoke.com/')
-//   .then(response => response.json())
-//   .then(joke => console.log(joke));
-
-  // const unparsedJoke = await fetch(`https://icanhazdadjoke.com/`)
-  // const joke = await unparsedJoke.json()
-  // console.log('unparsed:', unparsedJoke)
-  // console.log('joke:', unparsedJoke)
-  // if (joke) {
-  //   res.status(200)
-  //   res.send(joke);
-  // } else {
-  //   res.sendStatus(404)
-  // }
