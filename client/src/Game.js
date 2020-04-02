@@ -23,9 +23,6 @@ class Game extends Component {
   score () {
     const playerRoll = this.props.playerRoll
     const computerRoll = this.state.computerRoll
-    console.log(playerRoll)
-    console.log(computerRoll)
-    
     switch (`${playerRoll}${computerRoll}`) {
       case 'PaperRock':
         this.setState({

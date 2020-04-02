@@ -3,10 +3,6 @@ import './style.css';
 import Reward from './Reward.js';
 
 class Score extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       this.props.playerScore >= 3 || this.props.computerScore >=3 ?
