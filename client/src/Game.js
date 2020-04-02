@@ -14,9 +14,9 @@ class Game extends Component {
   }
 
   play(){
-    this.setState(() => ({
+    this.setState({
       computerRoll: this.props.choises[Math.floor(Math.random() * this.props.choises.length)],
-    }));
+    });
     this.score()
   }
 
@@ -28,33 +28,47 @@ class Game extends Component {
     
     switch (`${playerRoll}${computerRoll}`) {
       case 'PaperRock':
-        this.state.playerScore += 1;
-        this.state.roundOutcome = 'You\'r Paper beats the computer\'s Rock!';
+        this.setState({
+          playerScore: this.state.playerScore + 1,
+          roundOutcome: 'Your Paper beats the computer\'s Rock!'
+        });
         break;
       case 'RockScissors':
-        this.state.playerScore += 1;
-        this.state.roundOutcome = 'You\'r Rock beats the computer\'s Scissors!';
+        this.setState({
+          playerScore: this.state.playerScore + 1,
+          roundOutcome: 'Your Rock beats the computer\'s Scissors!'
+        });
         break;
       case 'ScissorsPaper':
-        this.state.playerScore += 1;
-        this.state.roundOutcome = 'You\'r Scissors beats the computer\'s Paper!';
+        this.setState({
+          playerScore: this.state.playerScore + 1,
+          roundOutcome: 'Your Scissors beats the computer\'s Paper!'
+        });
         break;
       case 'RockPaper':
-        this.state.computerScore += 1;
-        this.state.roundOutcome = 'You Lose! Paper beats Rock.';
+        this.setState({
+          computerScore: this.state.computerScore + 1,
+          roundOutcome: 'Your Rock lost to the computer\'s Paper!'
+        });
         break;
       case 'ScissorsRock':
-        this.state.computerScore += 1;
-        this.state.roundOutcome = 'You Lose! Rock beats Scissors.';
+        this.setState({
+          computerScore: this.state.computerScore + 1,
+          roundOutcome: 'Your Scissors lost to the computer\'s Rock!'
+        });
         break;
       case 'PaperScissors':
-        this.state.computerScore += 1;
-        this.state.roundOutcome = 'You Lose! Scissors beats Paper.';
+        this.setState({
+          computerScore: this.state.computerScore + 1,
+          roundOutcome: 'Your Paper lost to the computer\'s Scissors!'
+        });
         break;
       case 'RockRock':
       case 'PaperPaper':
       case 'ScissorsScissors':
-        this.state.roundOutcome = 'Its a Draw! Lets keep playing.';
+        this.setState({
+          roundOutcome: 'Its a Draw! Lets keep playing.'
+        });
         break;
       default:
     }

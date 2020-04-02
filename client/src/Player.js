@@ -6,7 +6,7 @@ class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isRockOn: true,
+      isRockOn: false,
       isPaperOn: false,
       isScissorsOn: false,};
     this.rollRock = this.rollRock.bind(this);
@@ -15,34 +15,37 @@ class Player extends Component {
   }
 
   rollRock() {
-    this.setState(state => ({
-      isRockOn: !state.isRockOn,
-      isPaperOn: state.isPaperOn = false,
-      isScissorsOn: state.isScissorOn = false,
-    }));
-    this.translateRoll();
+    this.setState({
+      isRockOn: true,
+      isPaperOn: false,
+      isScissorsOn: false,
+    });
   }
 
   rollPaper() {
-    this.setState(state => ({
-      isRockOn: state.isRockOn = false,
-      isPaperOn: !state.isPaperOn,
-      isScissorsOn: state.isScissorOn = false,
-    }));
-    this.translateRoll();
+    this.setState({
+      isRockOn: false,
+      isPaperOn: true,
+      isScissorsOn: false,
+    });
   }
 
   rollScissors() {
-    this.setState(state => ({
-      isRockOn: state.isRockOn = false,
-      isPaperOn: state.isPaperOn = false,
-      isScissorsOn: !state.isScissorOn
-    }));
-    this.translateRoll()
+    this.setState({
+      isRockOn: false,
+      isPaperOn: false,
+      isScissorsOn: true
+    });
   }
 
-  translateRoll() {
-    const playerRollObj = this.state;
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState !== this.state) {
+      const playerRollObj = this.state;
+      this.translateRoll(playerRollObj);
+    }
+  }
+
+  translateRoll(playerRollObj) {
     if (playerRollObj.isRockOn) {
       return this.lockedPlayerRoll = 'Rock'
     } else if (playerRollObj.isPaperOn) {
@@ -54,7 +57,7 @@ class Player extends Component {
 
   render () {
     return (
-      <div>
+      <div className="player">
         <button className={this.props.choises[0]} onClick={this.rollRock}>{this.props.choises[0]}</button>
         <button className={this.props.choises[1]} onClick={this.rollPaper}>{this.props.choises[1]}</button>
         <button className={this.props.choises[2]} onClick={this.rollScissors}>{this.props.choises[2]}</button>

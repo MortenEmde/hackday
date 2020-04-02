@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Lets play! Rock, Paper, Scissors!</h1>
+        <p>Beat me three times and you win a prize.</p>
       </header>
       <Board />
     </div>

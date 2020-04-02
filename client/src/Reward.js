@@ -6,7 +6,6 @@ class Reward extends Component {
     super(props);
     this.state = { 
       apiResponse: '',
-      spinner: 'Loading...'
     };
   }
 
@@ -22,9 +21,9 @@ class Reward extends Component {
 
   render () {
     return (
-      this.state.apiResponse !== '' ?
+      this.props.playerScore >= 3 ?
       <h4 className='reward'>{this.state.apiResponse}</h4>:
-      <div>{this.state.spinner}</div>
+      <h4 className='noReward'>You Lost! No reward this time.</h4>
     );
   }
 }
