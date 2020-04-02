@@ -14,6 +14,7 @@ class Score extends Component {
   render() {
     return (
       <div>
+        <h3>PRoll:{this.props.playerRoll} CRoll:{this.props.computerRoll}</h3>
         <h3>Player: {this.state.playerScore} - Computer: {this.state.computerScore}</h3>
         <Reward />
       </div>

@@ -6,21 +6,15 @@ class Board extends Component {
   constructor(props) {
     super(props);
     this.choises = [
-      "rock",
-      "paper",
-      "scissors"
+      "Rock",
+      "Paper",
+      "Scissors"
     ]
-  }
-
-  computerPlay(){
-    console.log(this.state.array[Math.floor(Math.random() * array.length)]);
   }
 
   render () {
     return (
-      <div>
-        <Player />
-      </div>
+      <Player choises = {this.choises}/>
     );
   }
 }

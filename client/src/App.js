@@ -8,9 +8,7 @@ function App() {
       <header className="App-header">
         <h1>Lets play! Rock, Paper, Scissors!</h1>
       </header>
-      <div>
-        <Board />
-      </div>
+      <Board />
     </div>
   );
 }
