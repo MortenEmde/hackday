@@ -8,18 +8,17 @@ class Player extends Component {
     this.state = {
       isRockOn: false,
       isPaperOn: false,
-      isScissorOn: false,
-    };
+      isScissorsOn: false,};
     this.rollRock = this.rollRock.bind(this);
     this.rollPaper = this.rollPaper.bind(this);
-    this.rollScissor = this.rollScissor.bind(this);
+    this.rollScissor = this.rollScissors.bind(this);
   }
 
   rollRock() {
     this.setState(state => ({
       isRockOn: !state.isRockOn,
       isPaperOn: state.isPaperOn = false,
-      isScissorOn: state.isScissorOn = false,
+      isScissorsOn: state.isScissorOn = false,
     }));
   }
 
@@ -27,15 +26,15 @@ class Player extends Component {
     this.setState(state => ({
       isRockOn: state.isRockOn = false,
       isPaperOn: !state.isPaperOn,
-      isScissorOn: state.isScissorOn = false,
+      isScissorsOn: state.isScissorOn = false,
     }));
   }
 
-  rollScissor() {
+  rollScissors() {
     this.setState(state => ({
       isRockOn: state.isRockOn = false,
       isPaperOn: state.isPaperOn = false,
-      isScissorOn: !state.isScissorOn
+      isScissorsOn: !state.isScissorOn
     }));
   }
 
@@ -44,7 +43,7 @@ class Player extends Component {
       <div>
         <button className={this.props.choises[0]} onClick={this.rollRock}>{this.props.choises[0]}</button>
         <button className={this.props.choises[1]} onClick={this.rollPaper}>{this.props.choises[1]}</button>
-        <button className={this.props.choises[2]} onClick={this.rollScissor}>{this.props.choises[2]}</button>
+        <button className={this.props.choises[2]} onClick={this.rollScissors}>{this.props.choises[2]}</button>
         <Game choises={this.props.choises} playerRoll={this.state}/>
       </div>
     );
