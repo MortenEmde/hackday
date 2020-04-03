@@ -14,7 +14,7 @@ class Board extends Component {
 
   render () {
     return (
-      <Player choises = {this.choises}/>
+      <Player choises={this.choises}/>
     );
   }
 }

@@ -11,6 +11,7 @@ class Game extends Component {
       playerScore: 0,
     };
     this.play = this.play.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   play(){
@@ -71,10 +72,23 @@ class Game extends Component {
     }
   }
 
+  reset(){
+    this.setState({
+      playerScore: 0,
+      computerScore: 0,
+      roundOutcome: ''
+    });
+  }
+
   render () {
     return (
+      this.state.playerScore >= 3 || this.state.computerScore >=3 ?
       <div>
-        <button className='Play' onClick={this.play}>Play!</button>
+        <button className='Reset' onClick={this.reset}>Play again?</button>
+        <Score computerScore={this.state.computerScore} playerScore={this.state.playerScore} computerRoll={this.state.computerRoll} playerRoll={this.props.playerRoll} roundOutcome={this.state.roundOutcome}/>
+      </div>:
+      <div>
+        <button className='Play' onClick={this.play}>Roll!</button>
         <Score computerScore={this.state.computerScore} playerScore={this.state.playerScore} computerRoll={this.state.computerRoll} playerRoll={this.props.playerRoll} roundOutcome={this.state.roundOutcome}/>
       </div>
     );
