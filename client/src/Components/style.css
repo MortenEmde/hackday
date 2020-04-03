@@ -32,11 +32,15 @@ button:hover {
 	background-color:#9ba892;
 }
 
-.Rock:focus, .Paper:focus, .Scissors:focus { 
+.Rock-active, .Paper-active, .Scissors-active { 
   outline: none;
   transform: scale(1.3);
   border-color: #ff1e00;
   box-shadow: 0 0 1rem #ff1e00;
+}
+
+.App {
+  background-color: #282c34;
 }
 
 .Play {

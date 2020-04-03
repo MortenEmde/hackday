@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import Board from './Board.js';
+import Player from './Player.js';
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
         <h1>Lets play! Rock, Paper, Scissors!</h1>
         <p>Beat me three times and you win a prize.</p>
       </header>
-      <Board />
+      <Player />
     </div>
   );
 }

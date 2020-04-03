@@ -80,6 +80,10 @@ class Game extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.reset();
+  }
+
   render () {
     return (
       this.state.playerScore >= 3 || this.state.computerScore >=3 ?
